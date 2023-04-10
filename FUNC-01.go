@@ -7,14 +7,21 @@ import (
 )
 
 func main() {
-	var slice = []int{1, 2, 3, 4, 5}
-	resultado := media(slice)
+	var slice = []int{}
+	var n, x, soma int
+	fmt.Println("Digite o tamanho da slice:")
+	fmt.Scan(&n)
+	for i := 0; i < n; i++ {
+		fmt.Println("Digite os elementos da slice:")
+		fmt.Scan(&x)
+		slice = append(slice, x)
+		soma += slice[i]
+	}
+	resultado := media(soma, n)
 	fmt.Println(resultado)
 }
-func media(slice []int) int {
-	resultado := 0
-	for _, numeros := range slice {
-		resultado += numeros
-	}
-	return resultado / 5
+
+func media(soma int, n int) int {
+	resultado := soma / n
+	return resultado
 }
